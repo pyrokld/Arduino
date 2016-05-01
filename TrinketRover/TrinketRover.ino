@@ -12,7 +12,7 @@ Adafruit_SoftServo servo_left, servo_rght;
 // Moderate speed forward for both servos. Given the orientation of the servos
 // one will be going forward, and the other backward. You may need to adjust
 // these slightly to get the rover to move straight forward.
-const int left_speed = 80;
+const int left_speed = 75;
 const int rght_speed = 90;
 
 // Number in cm when the rover will reverse and try to navigate around.
@@ -41,8 +41,8 @@ void loop() {
   
   while( i < arraysize )
   {   
-    servo_left.refresh();
-    servo_rght.refresh();                 
+      servo_left.refresh();
+      servo_rght.refresh();                 
     pulse = pulseIn(EZ1pin, HIGH);  // read in time for pin to transition
     rangevalue[i]=pulse/58;         // pulses to centimeters (use 147 for inches)
     if( rangevalue[i] < 645 && rangevalue[i] >= 15 ) i++;  // ensure no values out of range
